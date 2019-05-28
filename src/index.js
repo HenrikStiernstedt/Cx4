@@ -6,7 +6,7 @@ import './index.css';
 function Square(props) {
   return (
     <button  className="square" style={{color: props.color}} onClick={props.onClick}>
-      {props.value} {props.color}
+      {props.value}
     </button>
   );
 }

@@ -237,25 +237,34 @@ class Game extends React.Component {
 }
 
 function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
 
-/*
-    if (squares[a].symbol && squares[a].symbol === squares[b].symbol && squares[a].symbol === squares[c].symbol) {
-      return squares[a];
+  /*
+   * Find all lines of at least 5 in a row according to color or symbol.
+   * Add one point for the players per score.
+   */
+  var MAX_ROW = 10;
+  var MAX_COL = 10;
+
+  for(var row = 0;row<MAX_ROW;row++)
+  {
+
+    for(var col = 0; col<MAX_COL;col++)
+    {
+      //console.log("col: " + col);
+      var i = row*MAX_COL + col;
+      //console.log("i: " + i);
+      console.log(i+": " + (squares[i] != null ? squares[i].symbol : null));
+      if(squares[i] != null && squares[i].symbol === "x")
+      {
+        return "x";
+      }
     }
-*/
+
   }
+
+  //console.log(squares);
+
+
 
 
   return null;
